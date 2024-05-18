@@ -116,7 +116,7 @@ async function generateContent(container, data) {
       fillCardData(card, value, i);
       cloned.appendChild(clonedCard);
       //cloned.removeChild(cloned.querySelector(".col-md-3"));
-      if(i != data.length){document.querySelector(".container").appendChild(cloned);}
+      if(i != data.length){container.appendChild(cloned);}
     } else {
         clonedCard = cardTemplate.cloneNode(true);
       card = clonedCard.querySelector(".card");
@@ -126,7 +126,7 @@ async function generateContent(container, data) {
   });
 
   //additional appened for cases when there are less than 3 items
-  document.querySelector(".container").appendChild(cloned);
-  //container.querySelector(".container").removeChild(div);
+  container.appendChild(cloned);
+  container.removeChild(div);
 
 }
