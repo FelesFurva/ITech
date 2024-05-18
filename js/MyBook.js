@@ -50,12 +50,10 @@ async function getData() {
 }
 
 //update book
-document.getElementById('exchange').addEventListener('click', function(){
-    const specificBook = database.ref("bookshelf/blossom");
-    specificBook.update({ exchange: "true" });
-
+document.getElementById("exchange").addEventListener("click", function () {
+  const specificBook = database.ref("bookshelf/blossom");
+  specificBook.update({ exchange: "true" });
 });
-
 
 //read books
 
@@ -110,15 +108,16 @@ async function generateContent(container, data) {
       fillCardData(card, value, i);
       console.log(card);
       cloned.appendChild(clonedCard);
-    } else if (i % maxColCount == (maxColCount - 1)) {
-        clonedCard = cardTemplate.cloneNode(true);
+    } else if (i % maxColCount == maxColCount - 1) {
+      clonedCard = cardTemplate.cloneNode(true);
       card = clonedCard.querySelector(".card");
       fillCardData(card, value, i);
       cloned.appendChild(clonedCard);
-      //cloned.removeChild(cloned.querySelector(".col-md-3"));
-      if(i != data.length){container.appendChild(cloned);}
+      if (i != data.length) {
+        container.appendChild(cloned);
+      }
     } else {
-        clonedCard = cardTemplate.cloneNode(true);
+      clonedCard = cardTemplate.cloneNode(true);
       card = clonedCard.querySelector(".card");
       fillCardData(card, value, i);
       cloned.appendChild(clonedCard);
@@ -128,5 +127,4 @@ async function generateContent(container, data) {
   //additional appened for cases when there are less than 3 items
   container.appendChild(cloned);
   container.removeChild(div);
-
 }
